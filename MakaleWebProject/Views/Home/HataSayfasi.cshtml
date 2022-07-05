@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "HataSayfasi";
+
+    Exception ex = null;
+    if(TempData["Eror"]!=null)
+    {
+        ex = TempData["Eror"] as Exception;
+    }
+}
+
+
+<div class="row text-center">
+    <div class="col-md-8 col-md-offset-2">
+        <h2><span class="glyphicon glyphicon glyphicon-remove-circle"></span> Hata oluştu.</h2>
+
+        <p>
+            Hata oluştu.Lütfen site yöneticisi ile iletişime geçiniz.
+
+            <br />
+            @if (ex != null)
+            {
+                <strong>Hata Detay :</strong>
+                @ex.Message
+                <br />
+
+            }
+
+
+        </p>
+
+        @Html.ActionLink("Anasayfaya git", "Index", "Home", null, new { @class = "bnt bnt-default" })
+
+
+    </div>
+
+
+</div>
